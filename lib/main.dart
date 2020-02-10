@@ -1,3 +1,4 @@
+import 'package:allthewidgets/buttons/buttonsPage.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -43,10 +44,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             ListTile(
-              title: Text("Item 1"),
+              leading: const Icon(Icons.input),
+              title: Text("Buttons"),
               onTap: () {
-                //stuff
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ButtonsPage()));
               },
             ),
             ListTile(
