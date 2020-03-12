@@ -1,4 +1,4 @@
-import 'package:allthewidgets/buttons/buttonsPage.dart';
+import 'package:allthewidgets/pages/buttonsPage.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -10,8 +10,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'All the Widgets',
       theme: ThemeData(
-        primarySwatch: Colors.grey,
-        accentColor: Colors.amberAccent,
+        primarySwatch: Colors.teal,
+        accentColor: Colors.blueAccent,
       ),
       home: MyHomePage(title: 'All the Widgets'),
     );
