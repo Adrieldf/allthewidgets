@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:share/share.dart';
 
 class CardWithCodeButton extends StatelessWidget {
   final Widget widget;
@@ -40,15 +42,36 @@ class CardWithCodeButton extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-            title: Text(this.name),
-            content: Container(
-              margin: EdgeInsets.all(10),
-              color: Colors.white,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[Text(this.code)],
-              ),
-            ));
+          title: Text(this.name),
+          content: Container(
+            margin: EdgeInsets.all(10),
+            color: Colors.white,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[Text(this.code)],
+            ),
+          ),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('Share'),
+              onPressed: () {
+                Share.share(this.code);
+              },
+            ),
+            FlatButton(
+              child: Text('Copy'),
+              onPressed: () {
+                Clipboard.setData(ClipboardData(text: this.code));
+              },
+            ),
+            FlatButton(
+              child: Text('Close'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
       },
     );
   }
