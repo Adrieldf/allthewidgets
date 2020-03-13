@@ -58,7 +58,7 @@ class CardWithCodeButton extends StatelessWidget {
             IconButton(
                 icon: Icon(Icons.share),
                 onPressed: () {
-                  Share.share(this.code);
+                  share(context);
                 }),
             IconButton(
                 icon: Icon(Icons.content_copy),
@@ -74,5 +74,13 @@ class CardWithCodeButton extends StatelessWidget {
         );
       },
     );
+  }
+
+  share(BuildContext context) {
+    final RenderBox box = context.findRenderObject();
+
+    Share.share("",
+        subject: this.code,
+        sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
   }
 }
