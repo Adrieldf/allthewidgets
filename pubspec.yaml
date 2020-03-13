@@ -20,8 +20,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  share: ^0.6.2+3
-  
+ # share: ^0.6.2+3
+
   cupertino_icons: ^0.1.2
 
 
