@@ -3,12 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:share/share.dart';
 
 class CardWithCodeButton extends StatelessWidget {
-  final Widget widget;
+  final List<Widget> widgets;
   final String name;
   final String description;
   final String code;
 
-  CardWithCodeButton({this.widget, this.name, this.description, this.code});
+  CardWithCodeButton({this.widgets, this.name, this.description, this.code});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,10 @@ class CardWithCodeButton extends StatelessWidget {
           title: Text(this.name),
           subtitle: Text(this.description),
         ),
-        this.widget,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: this.widgets,
+        ),
         ButtonBar(
           children: <Widget>[
             RaisedButton(
@@ -52,24 +55,21 @@ class CardWithCodeButton extends StatelessWidget {
             ),
           ),
           actions: <Widget>[
-            FlatButton(
-              child: Text('Share'),
-              onPressed: () {
-                Share.share(this.code);
-              },
-            ),
-            FlatButton(
-              child: Text('Copy'),
-              onPressed: () {
-                Clipboard.setData(ClipboardData(text: this.code));
-              },
-            ),
-            FlatButton(
-              child: Text('Close'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
+            IconButton(
+                icon: Icon(Icons.share),
+                onPressed: () {
+                  Share.share(this.code);
+                }),
+            IconButton(
+                icon: Icon(Icons.content_copy),
+                onPressed: () {
+                  Clipboard.setData(ClipboardData(text: this.code));
+                }),
+            IconButton(
+                icon: Icon(Icons.check),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                }),
           ],
         );
       },
