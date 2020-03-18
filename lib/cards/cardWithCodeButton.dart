@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-//import 'package:share/share.dart';
+import 'package:share/share.dart';
 
 class CardWithCodeButton extends StatelessWidget {
   final List<Widget> widgets;
@@ -79,8 +79,8 @@ class CardWithCodeButton extends StatelessWidget {
   share(BuildContext context) {
     final RenderBox box = context.findRenderObject();
 
-  /*  Share.share("",
+   Share.share("",
         subject: this.code,
-        sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);*/
+        sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
   }
 }
