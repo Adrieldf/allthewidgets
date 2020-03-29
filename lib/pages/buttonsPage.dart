@@ -1,5 +1,6 @@
 import 'package:allthewidgets/cards/cardWithCodeButton.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ButtonsPage extends StatelessWidget {
   @override
@@ -15,7 +16,8 @@ class ButtonsPage extends StatelessWidget {
             widgets: <Widget>[
               FlatButton(
                 child: Text("Click"),
-                onPressed: () {},
+                onPressed: () {
+                  this.showTestToast();},
               )
             ],
             name: "Flat Button",
@@ -26,7 +28,8 @@ class ButtonsPage extends StatelessWidget {
             widgets: <Widget>[
               RaisedButton(
                 child: Text("Click"),
-                onPressed: () {},
+                onPressed: () {
+                  this.showTestToast();},
               )
             ],
             name: "Raised Button",
@@ -35,17 +38,47 @@ class ButtonsPage extends StatelessWidget {
           ),
           CardWithCodeButton(
             widgets: <Widget>[
-              IconButton(icon: Icon(Icons.check), onPressed: () {}),
-              IconButton(icon: Icon(Icons.close), onPressed: () {}),
-              IconButton(icon: Icon(Icons.delete), onPressed: () {})
+              IconButton(icon: Icon(Icons.check), onPressed: () {
+                  this.showTestToast();}),
+              IconButton(icon: Icon(Icons.close), onPressed: () {
+                  this.showTestToast();}),
+              IconButton(icon: Icon(Icons.delete), onPressed: () {
+                  this.showTestToast();})
             ],
             name: "Icon Button",
             description: "A button that it is only a Icon",
             code:
                 " IconButton(\n icon: Icon(Icons.check),\n onPressed: () {}\n)",
-          )
+          ),
+          CardWithCodeButton(
+            widgets: <Widget>[
+              OutlineButton(
+                child: Text("Click"),
+                highlightedBorderColor: Colors.teal,
+                highlightColor: Colors.teal,
+                onPressed: () {
+                  this.showTestToast();
+                },
+              ),
+            ],
+            name: "Outline Button",
+            description: "A button that has a outline",
+            code:
+                "OutlineButton(\nchild: Text('Click'),\nhighlightedBorderColor: Theme.of(context).accentColor,\nonPressed: () {},\n)",
+          ),
         ],
       ),
     );
+  }
+
+  void showTestToast() {
+    Fluttertoast.showToast(
+        msg: "It works!",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0);
   }
 }

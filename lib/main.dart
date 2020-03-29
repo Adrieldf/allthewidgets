@@ -47,7 +47,8 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: const Icon(Icons.input),
               title: Text("Buttons"),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ButtonsPage()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ButtonsPage()));
               },
             ),
             ListTile(
@@ -71,7 +72,31 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            
+            Card(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  const ListTile(
+                    leading: Icon(Icons.offline_pin),
+                    title: Text('Buttons'),
+                    subtitle: Text('A lot of buttons'),
+                  ),
+                  ButtonBar(
+                    children: <Widget>[
+                      RaisedButton(
+                        child: const Text('Go'),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ButtonsPage()));
+                        },
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
