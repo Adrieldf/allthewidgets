@@ -1,6 +1,7 @@
 import 'package:allthewidgets/cards/cardWithCodeButton.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:random_color/random_color.dart';
 
 class ButtonsPage extends StatelessWidget {
   @override
@@ -72,12 +73,15 @@ class ButtonsPage extends StatelessWidget {
   }
 
   void showTestToast() {
+    RandomColor _randomColor = RandomColor();
+    Color _color = _randomColor.randomColor();
+    Fluttertoast.cancel();
     Fluttertoast.showToast(
         msg: "It works!",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
+        backgroundColor: _color,
         textColor: Colors.white,
         fontSize: 16.0);
   }
