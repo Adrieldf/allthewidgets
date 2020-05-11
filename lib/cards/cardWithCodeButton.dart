@@ -46,12 +46,19 @@ class CardWithCodeButton extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(this.name),
-          content: Container(
-            margin: EdgeInsets.all(10),
-            color: Colors.white,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[Text(this.code)],
+          content: Flexible(
+            child: Container(
+              margin: EdgeInsets.all(10),
+              color: Colors.white,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    this.code,
+                    overflow: TextOverflow.ellipsis,
+                  )
+                ],
+              ),
             ),
           ),
           actions: <Widget>[
@@ -79,7 +86,7 @@ class CardWithCodeButton extends StatelessWidget {
   share(BuildContext context) {
     final RenderBox box = context.findRenderObject();
 
-   Share.share("",
+    Share.share(this.code,
         subject: this.code,
         sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
   }
