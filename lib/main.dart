@@ -1,5 +1,8 @@
 import 'package:allthewidgets/pages/buttonsPage.dart';
+import 'package:allthewidgets/pages/home.dart';
 import 'package:flutter/material.dart';
+import 'constants/theme.dart';
+import 'constants/constants.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,12 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'All the Widgets',
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-        accentColor: Colors.blueAccent,
-      ),
-      home: MyHomePage(title: 'All the Widgets'),
+      theme: theme,
+      // home: MyHomePage(title: 'All the Widgets'),
+      home: Home(),
     );
   }
 }

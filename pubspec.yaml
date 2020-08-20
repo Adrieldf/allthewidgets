@@ -24,6 +24,7 @@ dependencies:
   fluttertoast: ^4.0.0
   cupertino_icons: ^0.1.2
   random_color: ^1.0.5
+  font_awesome_flutter: ^8.8.1
 
 
 dev_dependencies:
